@@ -44,15 +44,17 @@ function LocationPickerSheet(_: any, bottomSheetRef: any) {
       enablePanDownToClose
       index={-1}
       snapPoints={snapPoints}
-      backdropComponent={props => <BottomSheetBackdrop {...props} />}>
+      backdropComponent={props => (
+        <BottomSheetBackdrop {...props} disappearsOnIndex={-1} />
+      )}>
       <ListTitle>Select Location</ListTitle>
       <FlatList
         data={locationFilters}
         renderItem={({item}) => (
           <TouchableOpacity
             onPress={() => {
-              bottomSheetRef.current?.close();
               setLocationValue(item);
+              bottomSheetRef.current?.close();
             }}>
             <ListItem>
               <ListItemText

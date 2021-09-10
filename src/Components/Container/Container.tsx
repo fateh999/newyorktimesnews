@@ -63,7 +63,7 @@ function Container(props: ContainerProps) {
             barStyle={statusBarStyle}
             backgroundColor={statusBarBackgroundColor}
           />
-          <Wrapper backgroundColor={backgroundColor} />
+          <Wrapper backgroundColor={backgroundColor}>{children}</Wrapper>
         </Fragment>
       )}
     </Fragment>

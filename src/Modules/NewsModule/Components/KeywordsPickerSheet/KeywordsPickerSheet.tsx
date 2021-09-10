@@ -44,15 +44,17 @@ function KeywordsPickerSheet(_: any, bottomSheetRef: any) {
       enablePanDownToClose
       index={-1}
       snapPoints={snapPoints}
-      backdropComponent={props => <BottomSheetBackdrop {...props} />}>
+      backdropComponent={props => (
+        <BottomSheetBackdrop {...props} disappearsOnIndex={-1} />
+      )}>
       <ListTitle>Select Keywords</ListTitle>
       <FlatList
         data={keywordFilters}
         renderItem={({item}) => (
           <TouchableOpacity
             onPress={() => {
-              bottomSheetRef.current?.close();
               setKeywordsValue(item);
+              bottomSheetRef.current?.close();
             }}>
             <ListItem>
               <ListItemText
