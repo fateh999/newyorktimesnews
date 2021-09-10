@@ -9,6 +9,12 @@ interface WrapperProps extends ViewProps {
   backgroundColor: string;
 }
 
+interface SectionProps extends ViewProps {
+  backgroundColor: string;
+  borderColor: string;
+  border: number;
+}
+
 interface TitleProps extends TextProps {
   color: string;
 }
@@ -23,10 +29,10 @@ const InnerWrapper = styled.View<WrapperProps>`
   background-color: ${({backgroundColor}) => backgroundColor};
 `;
 
-const Section = styled.View<WrapperProps & {borderColor: string}>`
+const Section = styled.View<SectionProps>`
   padding: 10px;
   border-radius: 5px;
-  border: 2px;
+  border: ${({border}) => `${border}px`};
   margin-right: 15px;
   width: 120px;
   background-color: ${({backgroundColor}) => backgroundColor};
@@ -65,6 +71,7 @@ function SectionList() {
           renderItem={({item}: any) => (
             <Pressable onPress={() => setSectionValue(item)}>
               <Section
+                border={activeSection === item ? 2 : 1}
                 backgroundColor={theme.colors.surface}
                 borderColor={
                   activeSection === item
@@ -87,6 +94,7 @@ function SectionList() {
           renderItem={({item}: any) => (
             <Pressable onPress={() => setSectionValue(item)}>
               <Section
+                border={activeSection === item ? 2 : 1}
                 backgroundColor={theme.colors.surface}
                 borderColor={
                   activeSection === item

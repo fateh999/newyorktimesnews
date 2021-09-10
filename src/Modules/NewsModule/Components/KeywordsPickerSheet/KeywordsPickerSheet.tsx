@@ -1,5 +1,5 @@
 import BottomSheet, {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
-import React, {forwardRef, Fragment, useEffect, useMemo, useState} from 'react';
+import React, {forwardRef, useMemo} from 'react';
 import {FlatList, TextProps, TouchableOpacity, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import useThemeValue from 'src/Modules/ThemeModule/Hooks/useThemeValue';
@@ -36,27 +36,15 @@ function KeywordsPickerSheet(_: any, bottomSheetRef: any) {
   const insets = useSafeAreaInsets();
   const keywords = useKeywordsValue();
   const theme = useThemeValue();
-  const snapPoints = useMemo(() => [0, '50%'], []);
-
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    // Temp hack to handle bottom sheet backdrop error in the library
-    setTimeout(() => {
-      setShow(false);
-    }, 300);
-  }, []);
+  const snapPoints = useMemo(() => ['25%', '50%'], []);
 
   return (
     <BottomSheet
       ref={bottomSheetRef}
-      index={0}
+      enablePanDownToClose
+      index={-1}
       snapPoints={snapPoints}
-      backdropComponent={props => (
-        <Fragment>
-          {show && <BottomSheetBackdrop {...props} closeOnPress={true} />}
-        </Fragment>
-      )}>
+      backdropComponent={props => <BottomSheetBackdrop {...props} />}>
       <ListTitle>Select Keywords</ListTitle>
       <FlatList
         data={keywordFilters}
