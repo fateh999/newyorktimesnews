@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "postinstall": "npx pod-install",
+    "postinstall": "yarn update-env && npx pod-install",
     "update-env": "yarn rnuc .env"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "react-native-reanimated": "^2.2.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.7.0",
+    "react-native-snackbar": "^2.4.0",
     "react-native-ultimate-config": "^3.4.1",
     "react-native-vector-icons": "^8.1.0",
     "react-query": "^3.23.2",
