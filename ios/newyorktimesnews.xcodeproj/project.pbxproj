@@ -37,6 +37,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = newyorktimesnews/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = newyorktimesnews/main.m; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-newyorktimesnews-newyorktimesnewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newyorktimesnews-newyorktimesnewsTests.release.xcconfig"; path = "Target Support Files/Pods-newyorktimesnews-newyorktimesnewsTests/Pods-newyorktimesnews-newyorktimesnewsTests.release.xcconfig"; sourceTree = "<group>"; };
+		3B774FE126EC902000BE2407 /* rnuc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = rnuc.xcconfig; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-newyorktimesnews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-newyorktimesnews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-newyorktimesnews-newyorktimesnewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newyorktimesnews-newyorktimesnewsTests.debug.xcconfig"; path = "Target Support Files/Pods-newyorktimesnews-newyorktimesnewsTests/Pods-newyorktimesnews-newyorktimesnewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = newyorktimesnews/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3B774FE126EC902000BE2407 /* rnuc.xcconfig */,
 				13B07FAE1A68108700A75B9A /* newyorktimesnews */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* newyorktimesnewsTests */,
@@ -529,6 +531,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B774FE126EC902000BE2407 /* rnuc.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -594,6 +597,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B774FE126EC902000BE2407 /* rnuc.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

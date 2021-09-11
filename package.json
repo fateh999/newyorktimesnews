@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "postinstall": "npx pod-install"
+    "postinstall": "npx pod-install",
+    "update-env": "yarn rnuc .env"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
@@ -28,6 +29,7 @@
     "react-native-reanimated": "^2.2.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.7.0",
+    "react-native-ultimate-config": "^3.4.1",
     "react-native-vector-icons": "^8.1.0",
     "react-query": "^3.23.2",
     "react-query-native-persist": "^0.1.0",
@@ -62,6 +64,8 @@
       "json",
       "node"
     ],
-    "setupFiles": ["./jestSetupFile.js"]
+    "setupFiles": [
+      "./jestSetupFile.js"
+    ]
   }
 }

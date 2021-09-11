@@ -21,9 +21,7 @@ class NewsService {
   }
 
   loadNews = (section: SECTION) => {
-    return fetcher({
-      url: `/${section}.json`,
-    });
+    return fetcher(`/${section}.json`);
   };
 }
 

@@ -1,10 +1,9 @@
-import axios, {AxiosRequestConfig} from 'axios';
-import {API_URL, API_KEY} from './Constants';
+import axios from 'axios';
+import {API_URL} from './Constants';
+import UltimateConfig from 'react-native-ultimate-config';
 
-export const fetcher = async (config: AxiosRequestConfig) => {
-  const {url} = config;
-
-  return axios.get(`${API_URL}${url}?api-key=${API_KEY}`);
+export const fetcher = async (url: string) => {
+  return axios.get(`${API_URL}${url}?api-key=${UltimateConfig.API_KEY}`);
 };
 
 export const onError = (error: any) => {
