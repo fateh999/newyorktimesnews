@@ -8,6 +8,8 @@ results: RESULT[];
 error: AxiosError<any> | null;
 refetch: (options?: (RefetchOptions & RefetchQueryFilters<AxiosResponse<NEWS_RESPONSE>>) | undefined) => Promise<any>;
 isLoading: boolean;
+locationFilters: Array<string>:
+keywordFilters:Array<string>:
 }
 ```
 
@@ -21,3 +23,9 @@ isLoading: boolean;
 
 - isLoading:
   This denotes the current state of api, whether it is being called or not.
+
+- locationFilters:
+  This is the unique list of locations retrieved from news results.
+
+- keywordFilters:
+  This is the unique list of keywords retrieved from news results.
