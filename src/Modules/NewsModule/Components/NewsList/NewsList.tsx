@@ -19,10 +19,12 @@ const NoDataFound = styled.View`
 const NoDataFoundText = styled.Text`
   font-size: 20px;
   color: white;
+  text-align: center;
+  padding: 20px;
 `;
 
 function NewsList() {
-  const {results, isLoading, refetch} = useNewsQuery();
+  const {results, isLoading, error, refetch} = useNewsQuery();
   const location = useLocationValue();
   const keywords = useKeywordsValue();
   const finalResults = useMemo(
@@ -38,6 +40,7 @@ function NewsList() {
 
   return (
     <FlatList
+      testID={'newsList'}
       data={finalResults}
       renderItem={({item}: any) => <NewsItem {...item} />}
       ItemSeparatorComponent={() => <Spacer />}
@@ -49,7 +52,15 @@ function NewsList() {
       contentContainerStyle={contentContainerStyle}
       ListEmptyComponent={() => (
         <NoDataFound>
-          {!isLoading && <NoDataFoundText>No Data Found</NoDataFoundText>}
+          {!isLoading && (
+            <NoDataFoundText>
+              {error
+                ? error?.response
+                  ? 'Something went wrong, Please pull to refresh'
+                  : 'Failed to connect with server, Please check your internet connection'
+                : 'No Data Found'}
+            </NoDataFoundText>
+          )}
         </NoDataFound>
       )}
     />

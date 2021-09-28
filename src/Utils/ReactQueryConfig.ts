@@ -11,6 +11,7 @@ export const queryClient = new QueryClient({
     queries: {
       onError,
       cacheTime: Infinity,
+      retry: false,
     },
     mutations: {
       onError,
