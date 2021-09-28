@@ -22,9 +22,7 @@ describe('NewsList', () => {
     (useNewsQuery as jest.Mock<any>).mockImplementation(() => ({
       results: [],
       isLoading: false,
-      newsResponse: {},
-      locationFilters: [],
-      keywordFilters: [],
+      error: null,
     }));
   });
   it('renders correctly', () => {
@@ -35,9 +33,7 @@ describe('NewsList', () => {
     (useNewsQuery as jest.Mock<any>).mockImplementation(() => ({
       results: [],
       isLoading: true,
-      newsResponse: {},
-      locationFilters: [],
-      keywordFilters: [],
+      error: null,
     }));
     const {getByTestId} = render(<NewsList />);
     const FlatList = getByTestId('newsList');
@@ -49,9 +45,7 @@ describe('NewsList', () => {
     (useNewsQuery as jest.Mock<any>).mockImplementation(() => ({
       results: [],
       isLoading: false,
-      newsResponse: {},
-      locationFilters: [],
-      keywordFilters: [],
+      error: null,
     }));
     const {getByText} = render(<NewsList />);
 
@@ -61,11 +55,8 @@ describe('NewsList', () => {
   it('renders data', () => {
     (useNewsQuery as jest.Mock<any>).mockImplementation(() => ({
       results: SAMPLE_DATA,
-      error: {response: {}},
+      error: null,
       isLoading: false,
-      newsResponse: {},
-      locationFilters: [],
-      keywordFilters: [],
     }));
     (useKeywordsValue as jest.Mock<string>).mockImplementation(() => '');
     (useLocationValue as jest.Mock<string>).mockImplementation(() => '');
@@ -81,9 +72,6 @@ describe('NewsList', () => {
       results: SAMPLE_DATA,
       error: {response: {}},
       isLoading: false,
-      newsResponse: {},
-      locationFilters: locationFilters,
-      keywordFilters: keywordFilters,
     }));
     (useKeywordsValue as jest.Mock<string>).mockImplementation(
       () => 'The Inheritance (Play)',
@@ -101,9 +89,6 @@ describe('NewsList', () => {
       results: [],
       error: {response: {}},
       isLoading: false,
-      newsResponse: {},
-      locationFilters: [],
-      keywordFilters: [],
     }));
 
     const {getByText} = render(<NewsList />);
@@ -118,9 +103,6 @@ describe('NewsList', () => {
       results: [],
       error: {},
       isLoading: false,
-      newsResponse: {},
-      locationFilters: [],
-      keywordFilters: [],
     }));
 
     const {getByText} = render(<NewsList />);
@@ -416,19 +398,3 @@ const SAMPLE_DATA = [
     short_url: 'https://nyti.ms/3kH0onx',
   },
 ];
-const locationFilters: Array<string> = Array.from(
-  new Set(
-    (SAMPLE_DATA ?? [])
-      .map(({geo_facet}) => [...geo_facet])
-      .reduce((a: any, b: any) => a.concat(b), [])
-      .filter((_: any) => _),
-  ),
-);
-const keywordFilters: Array<string> = Array.from(
-  new Set(
-    (SAMPLE_DATA ?? [])
-      .map(({des_facet}) => [...des_facet])
-      .reduce((a: any, b: any) => a.concat(b), [])
-      .filter((_: any) => _),
-  ),
-);

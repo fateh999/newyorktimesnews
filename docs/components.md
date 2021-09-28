@@ -1,5 +1,7 @@
 ## Container
 
+- This component acts as a wrapper component for any screen, it handles the statusbar color and style on both Platform, i.e. iOS and Android.
+
 **Props**
 
 - children
@@ -27,6 +29,8 @@
 | StatusBarStyle | 'light-content' | no       |
 
 ## NewsItem
+
+- This component is for displaying any particular news, it has the following props.
 
 **Props**
 

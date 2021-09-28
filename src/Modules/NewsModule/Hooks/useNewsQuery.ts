@@ -15,22 +15,6 @@ function useNewsQuery() {
   );
 
   const newsResponse = data?.data;
-  const locationFilters: Array<string> = Array.from(
-    new Set(
-      (newsResponse?.results ?? [])
-        .map(({geo_facet}) => [...geo_facet])
-        .reduce((a: any, b: any) => a.concat(b), [])
-        .filter((_: any) => _),
-    ),
-  );
-  const keywordFilters: Array<string> = Array.from(
-    new Set(
-      (newsResponse?.results ?? [])
-        .map(({des_facet}) => [...des_facet])
-        .reduce((a: any, b: any) => a.concat(b), [])
-        .filter((_: any) => _),
-    ),
-  );
 
   const results = newsResponse?.results ?? [];
 
@@ -39,9 +23,6 @@ function useNewsQuery() {
     error,
     refetch,
     isLoading,
-    newsResponse,
-    locationFilters,
-    keywordFilters,
   };
 }
 
